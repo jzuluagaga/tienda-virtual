@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Zapatos</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+    <!-- 🔹 Barra de navegación -->
+    <header>
+        <div class="nav-left">
+            <div class="logo">DAGO</div>
+            <nav>
+                <ul>
+                    <li><a href="#">Descuentos</a></li>
+                    <li><a href="#">Hombre</a></li>
+                    <li><a href="#">Mujer</a></li>
+                    <li><a href="#">Unisex</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="nav-right">
+            <a href="#" class="icon-link">
+                <img src="/images/cart-icon.png" alt="Carrito" class="icon"> 🛒 Carrito
+            </a>
+            <a href="#" class="icon-link">
+                <img src="/images/user-icon.png" alt="Usuario" class="icon"> 👤 Ingresa
+            </a>
+        </div>
+    </header>
+
+    <!-- 🔹 Sección de imágenes destacadas -->
+    <section class="destacados">
+        <div class="img-destacada">
+            <img src="/images/nike-ja-1.jpeg" alt="Nike Air Max">
+        </div>
+        <div class="img-destacada">
+            <img src="/images/adidas_ultraboost.jpg" alt="Adidas Ultraboost">
+        </div>
+    </section>
+
+    <!-- 🔹 Sección de novedades -->
+    <section class="novedades">
+        <h2>Novedades</h2>
+        <div class="productos-container">
+            <div class="producto" th:each="producto : ${productos}">
+                <img th:src="@{${producto.imagen}}" alt="Zapato">
+                <h3 th:text="${producto.nombre}">Nombre del zapato</h3>
+                <p th:text="'$' + ${producto.precio}">Precio</p>
+                <button>Agregar al Carrito</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🔹 Footer -->
+    <footer>
+        <p>&copy; 2025 Tienda de Zapatos - Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
+
+
+
