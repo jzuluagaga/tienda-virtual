@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zapatos para Hombre</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+
+    <!-- Incluir barra de navegación -->
+    <div th:replace="fragments/navbar :: body"></div>
+    <h1>Zapatos para Hombre</h1>
+    <section class="productos-container">
+        <div class="producto" th:each="producto : ${productos}">
+            <img th:src="@{${producto.imagen}}" alt="Imagen del producto" class="producto-imagen">
+            <h3 th:text="${producto.nombre}">Nombre del zapato</h3>
+            <p th:text="'$' + ${#numbers.formatDecimal(producto.precio, 0, 'POINT', 0, 'NONE')}">Precio</p>
+            <button>Agregar al Carrito</button>
+        </div>
+</section>
+
+</body>
+</html>
+
+

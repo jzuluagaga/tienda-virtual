@@ -129,11 +129,18 @@ nav ul li a:hover {
     transform: scale(1.05);
 }
 
-.producto img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
+
+
+/* 🔹 Tamaño uniforme para imágenes de productos */
+.producto-imagen {
+    width: 180px;      /* Ancho fijo */
+    height: 180px;     /* Alto fijo */
+    object-fit: contain; /* Mantiene la proporción, recorta si es necesario */
+    border-radius: 10px; /* Bordes redondeados para mejor apariencia */
+    margin-bottom: 10px; /* Espacio entre imagen y texto */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
+
 
 button {
     background: #007BFF;
@@ -149,6 +156,69 @@ button:hover {
     background: #0056b3;
 }
 
+/* 🔹 Tabla del carrito */
+.carrito-container {
+    width: 80%;
+    margin: 40px auto;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    background: #007BFF;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background: #f2f2f2;
+}
+
+tr:hover {
+    background: #ddd;
+}
+
+button.eliminar {
+    background: #FF4136;
+    color: white;
+    padding: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+button.eliminar:hover {
+    background: #D70000;
+}
+
+/* 🔹 Enlace volver */
+.volver {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.volver:hover {
+    color: #0056b3;
+}
+
 /* 🔹 Footer */
 footer {
     background: #333;
@@ -157,6 +227,7 @@ footer {
     text-align: center;
     margin-top: 30px;
 }
+
 
 
 

@@ -1,0 +1,4 @@
+Juan,zuluaga,juanpablozulu8@gmail.com,Cra 47 N 77 Sur 85 Sabaneta,3217493530,$2a$10$y6NsF7WcEyY/SJi2ZqkFtehAp7CD6EGW0FERfuPVjmnvrzQs2hthi
+Juan,zuluaga,jzuluagadev@gmail.com,Cra 47 N 77 Sur 85 Sabaneta,3217493530,$2a$10$3HxMHDyCf7vHFvEnH4pxM.Z7Hb83vLguk3W8psk5j9w.pqyyLRqFS
+pedro,perez,jpzuluaga2005@gmail.com,Cra 47 N 77 Sur 85 Sabaneta,3217493530,$2a$10$dS/5cogy2J1Z4ugx8ITl/OeyumCCvRPpO0b83uRHejriuWrhh/22K
+Juan,zuluaga,jzuluagaga@unal.edu.co,calle 1,244,$2a$10$8dQLkkYaXS/Ds5DlutwnReCxHURPEweyZdtl4BSV6E.oXgES.P86q

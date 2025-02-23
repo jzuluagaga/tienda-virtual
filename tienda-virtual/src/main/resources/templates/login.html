@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Inicio de Sesión</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+
+<h1>Iniciar Sesión</h1>
+
+    <form th:action="@{/usuario/login}" method="post">
+        <input type="text" name="correo" placeholder="Correo" required>
+        <input type="password" name="contraseña" placeholder="Contraseña" required>
+        <button type="submit">Iniciar Sesión</button>
+    </form>
+
+
+<p th:if="${error}" th:text="${error}"></p>
+
+<a th:href="@{/usuario/registro}">¿No tienes cuenta? Regístrate aquí</a>
+
+</body>
+</html>
+
