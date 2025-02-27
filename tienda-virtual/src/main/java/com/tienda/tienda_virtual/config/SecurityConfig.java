@@ -18,7 +18,7 @@ public class SecurityConfig {
         http
             .csrf().disable() // Desactivar CSRF
             .authorizeHttpRequests((authz) -> authz
-                .requestMatchers("/", "/registro", "/login", "/usuario/**", "/carrito", "/images/**", "/static/**", "/css/**", "/js/**", "/style.css", "/bienvenida").permitAll()
+                .requestMatchers("/", "/registro", "/login", "/usuario/**", "/carrito", "/images/**", "/static/**", "/css/**", "/js/**", "/style.css", "/bienvenida", "/hombre", "/mujer", "/productos", "/producto/**", "/buscar").permitAll()
                 .anyRequest().authenticated()
             )
             
