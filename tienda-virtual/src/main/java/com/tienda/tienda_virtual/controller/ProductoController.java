@@ -19,18 +19,14 @@ public class ProductoController {
         new Producto("Nike Ja 1", 700000, "Nike", 15, 1L, true, "/images/nike-ja-1.png"),
         new Producto("Nike Lebron Witness 8", 600000, "Nike", 10, 2L, true, "/images/lebron-witness-8.png"),
         new Producto("Nike Kevin Durant", 500000, "Nike", 8, 3L, true, "/images/kd.png")
-
     );
 
     @GetMapping("/")
     public String listarProductos(Model model) {
-        System.out.println("Lista de productos:");
-        productos.forEach(p -> System.out.println(p.getNombre()));
-
         model.addAttribute("productos", productos);
         return "index";
     }
-    
+
     @GetMapping("/buscar")
     public String buscarProductos(@RequestParam("query") String query, Model model) {
         // Filtrar productos cuyo nombre contenga el término de búsqueda (ignorando mayúsculas/minúsculas)
@@ -41,18 +37,13 @@ public class ProductoController {
         model.addAttribute("productos", resultados);
         return "index"; // Redirigir a la misma página con los resultados filtrados
     }
-    
 
-
-    // Página de detalles de un producto específico
     @GetMapping("/producto/{id}")
     public String detalleProducto(@PathVariable Long id, Model model) {
-        // Busca el producto por ID en la lista
         Optional<Producto> productoEncontrado = productos.stream()
-            .filter(p -> (p.getId() == id))
+            .filter(p -> p.getId() == id)
             .findFirst();
 
-        // Si se encuentra, lo manda a la vista "detalle-producto"
         if (productoEncontrado.isPresent()) {
             model.addAttribute("producto", productoEncontrado.get());
             return "detalle-producto";
@@ -61,5 +52,7 @@ public class ProductoController {
         return "redirect:/"; // Si no se encuentra, redirige al inicio
     }
 }
+
+
 
 

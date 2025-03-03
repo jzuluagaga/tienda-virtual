@@ -9,12 +9,8 @@
     <link rel="stylesheet" th:href="@{/style.css}">
 </head>
 <body>
-
-
-
     <div class="carrito-container">
         <h1>Carrito de Compras</h1>
-
         <table>
             <thead>
                 <tr>
@@ -29,7 +25,9 @@
                 <tr th:each="item : ${items}">
                     <td th:text="${item.producto.nombre}">Nombre</td>
                     <td th:text="'$' + ${item.producto.precio}">Precio</td>
-                    <td th:text="${item.cantidad}">Cantidad</td>
+                    <td>
+                        <input type="number" name="cantidad" th:value="${item.cantidad}" min="1" th:data-id="${item.producto.id}" onchange="actualizarCantidad(this)">
+                    </td>
                     <td th:text="'$' + ${item.getSubtotal()}">Subtotal</td>
                     <td>
                         <form th:action="@{/carrito/eliminar}" method="post">
@@ -40,11 +38,39 @@
                 </tr>
             </tbody>
         </table>
-
         <a th:href="@{/}" class="volver">⬅ Volver a la tienda</a>
     </div>
 
+    <script>
+        function actualizarCantidad(input) {
+            const id = input.getAttribute('data-id');
+            const cantidad = input.value;
+
+            if (cantidad < 1) {
+                input.value = 1;
+                return;
+            }
+
+            fetch(`/carrito/actualizar?id=${id}&cantidad=${cantidad}`, {
+                method: 'POST'
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Error al actualizar la cantidad');
+                }
+                return response.text();
+            })
+            .then(() => {
+                location.reload(); // Recargar la página para actualizar los subtotales
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
 </body>
 </html>
+
+
 
 

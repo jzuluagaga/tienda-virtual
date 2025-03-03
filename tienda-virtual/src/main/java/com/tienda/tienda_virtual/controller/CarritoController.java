@@ -4,13 +4,7 @@
  */
 package com.tienda.tienda_virtual.controller;
 
-/**
- *
- * @author macpro
- */
-
 import com.tienda.tienda_virtual.model.Producto;
-import com.tienda.tienda_virtual.model.ItemCarrito;
 import com.tienda.tienda_virtual.service.CarritoService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,21 +28,20 @@ public class CarritoController {
 
     @PostMapping("/agregar")
     public String agregarAlCarrito(
+        @RequestParam Long id, 
         @RequestParam String nombre, 
         @RequestParam double precio, 
-        @RequestParam int cantidad, 
-        @RequestParam String imagen) { // Agregar parámetro de imagen
+        @RequestParam String imagen) { 
 
-    // Crear el objeto Producto con la imagen proporcionada
-    Producto producto = new Producto(nombre, precio, "Marca X", 10, 1L, true, imagen);
-    
-    // Agregar el producto al carrito
-    carritoService.agregarAlCarrito(producto, cantidad);
-    
-    // Redirigir al carrito
-    return "redirect:/carrito";
-}
+        // Crear el objeto Producto con el id real
+        Producto producto = new Producto(nombre, precio, "Marca X", 10, id, true, imagen);
 
+        // Agregar el producto al carrito con cantidad 1
+        carritoService.agregarAlCarrito(producto, 1);
+
+        // Redirigir al carrito
+        return "redirect:/carrito";
+    }
 
     @PostMapping("/eliminar")
     public String eliminarDelCarrito(@RequestParam Long id) {

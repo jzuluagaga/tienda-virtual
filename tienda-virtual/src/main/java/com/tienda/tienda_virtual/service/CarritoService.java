@@ -7,10 +7,11 @@ package com.tienda.tienda_virtual.service;
 import com.tienda.tienda_virtual.model.ItemCarrito;
 import com.tienda.tienda_virtual.model.Producto;
 import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 import java.util.List;
 
-@Service // Asegúrate de incluir esta anotación
+@Service
 public class CarritoService {
     private List<ItemCarrito> items = new ArrayList<>();
 
@@ -19,6 +20,12 @@ public class CarritoService {
     }
 
     public void agregarAlCarrito(Producto producto, int cantidad) {
+        for (ItemCarrito item : items) {
+            if (item.getProducto().getId() == producto.getId()) {
+                item.setCantidad(item.getCantidad() + cantidad);
+                return;
+            }
+        }
         items.add(new ItemCarrito(producto, cantidad));
     }
 
@@ -35,4 +42,6 @@ public class CarritoService {
         }
     }
 }
+
+
 

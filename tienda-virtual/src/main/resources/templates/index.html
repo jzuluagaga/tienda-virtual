@@ -41,18 +41,22 @@
                             <h5 class="card-title" th:text="${producto.nombre}">Nombre del zapato</h5>
                             <p class="card-text text-primary fw-bold" th:text="'$' + ${#numbers.formatDecimal(producto.precio, 0, 'POINT', 0, 'NONE')}">Precio</p>
 
-                            <!-- Botón para agregar al carrito -->
-                            <button class="btn btn-primary">
-                                <i class="fas fa-cart-plus"></i> Agregar al Carrito
-                            </button>
+                            <!-- Formulario para agregar al carrito -->
+                            <form action="/carrito/agregar" method="post">
+                                <input type="hidden" name="id" th:value="${producto.id}">
+                                <input type="hidden" name="nombre" th:value="${producto.nombre}">
+                                <input type="hidden" name="precio" th:value="${producto.precio}">
+                                <input type="hidden" name="imagen" th:value="${producto.imagen}">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-
 
     <!-- 🔹 Footer -->
     <footer class="bg-dark text-white text-center py-3 mt-4">
@@ -63,6 +67,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
+
 
 
 
