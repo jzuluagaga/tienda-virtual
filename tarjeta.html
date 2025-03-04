@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Registro de Tarjeta de Débito</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<h1>Registrar Tarjeta de Débito</h1>
+
+<form th:action="@{/tarjeta/registro}" method="post">
+    <input type="text" name="numeroTarjeta" placeholder="Número de Tarjeta (16 dígitos)" required>
+    <input type="text" name="titular" placeholder="Titular de la Tarjeta" required>
+    <input type="text" name="fechaExpiracion" placeholder="Fecha de Expiración (MM/YY)" required>
+    <input type="text" name="cvv" placeholder="CVV (3-4 dígitos)" required>
+    <input type="number" step="0.01" name="saldo" placeholder="Saldo inicial" required>
+    <button type="submit">Registrar</button>
+</form>
+
+<p th:if="${error}" th:text="${error}" style="color:red;"></p>
+<p th:if="${mensaje}" th:text="${mensaje}" style="color:green;"></p>
+
+<a th:href="@{/usuario/bienvenida}">Volver</a>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Bienvenida</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+
+<h1 th:text="'¡Bienvenido, ' + ${nombreUsuario} + '!'">¡Bienvenido!</h1>
+
+<a th:href="@{/}">Ir a la tienda</a>
+
+<!-- Button to register a debit card -->
+<a th:href="@{/tarjeta/registro}" style="display: block; margin-top: 20px; font-size: 18px; color: blue;">
+    Registrar una Tarjeta de Débito
+</a>
+
+</body>
+</html>
